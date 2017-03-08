@@ -293,7 +293,7 @@ export class MdSlider implements ControlValueAccessor {
     let axis = this.vertical ? 'Y' : 'X';
     let sign = this.invertMouseCoords ? '-' : '';
     return {
-      'transform': `translate${axis}(${sign}${this._thumbGap}px) scale${axis}(${1 - this.percent})`
+      'transform': `translate${axis}(${sign}${this._thumbGap}px) scale${axis}(1)`
     };
   }
 
@@ -302,7 +302,7 @@ export class MdSlider implements ControlValueAccessor {
     let axis = this.vertical ? 'Y' : 'X';
     let sign = this.invertMouseCoords ? '' : '-';
     return {
-      'transform': `translate${axis}(${sign}${this._thumbGap}px) scale${axis}(${this.percent})`
+      'transform': `translate${axis}(${this.percent * 100}%) scale${axis}(${ (50 - this.percent * 100) / 100})`
     };
   }
 
